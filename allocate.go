@@ -443,6 +443,12 @@ func CombinedOutput(w io.Writer) ExecAllocatorOption {
 	}
 }
 
+// NoZygote is the Chrome command line option to disable the
+// zygote process.
+func NoZygote(a *ExecAllocator) {
+	Flag("no-zygote", true)(a)
+}
+
 // NewRemoteAllocator creates a new context set up with a RemoteAllocator,
 // suitable for use with NewContext. The url should point to the browser's
 // websocket address, such as "ws://127.0.0.1:$PORT/devtools/browser/...".
